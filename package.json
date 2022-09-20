@@ -1,0 +1,27 @@
+{
+  "name": "colgram",
+  "version": "0.1.0",
+  "description": "chat mejor que telegram, con ciertas mejoras",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RtMarksmash/curso-nodejs-mongodb.git"
+  },
+  "keywords": [
+    "chat",
+    "telegram",
+    "server"
+  ],
+  "author": "jorge mario mora <jorgemariomoramolina@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RtMarksmash/curso-nodejs-mongodb/issues"
+  },
+  "homepage": "https://github.com/RtMarksmash/curso-nodejs-mongodb#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
