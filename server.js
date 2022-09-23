@@ -1,16 +1,20 @@
 ;
 
-const express = require('express');
+const express = require('express');// 1. montamos express
 const bodyParser = require('body-parser')
-const response = require('./network/response')
-const router = require('./components/message/network.js')
 
-const app = express();
+//const router = require('./components/message/network.js')
+const router = require('./network/routes')
+
+
+const app = express(); // 2. metemos express en una costante
 
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(router);
+//app.use(router);
+router(app)
+
 
 
 /* app.use('/', (req,res)=>{

@@ -1,9 +1,9 @@
 exports.succes = function(req,res,message,status){
     res.status(status || 201 ).send({
         "error": "",
-        "menssage":message
+        "body": message
     })
-    //
+    // 4. creamos las respuestas,we made a reponses about error or message 
 }
 
 exports.error = function(req,res,message,status,details){
