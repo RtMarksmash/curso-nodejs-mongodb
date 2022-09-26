@@ -5,7 +5,8 @@ const router = express.Router();
 const controller = require('../controller')
 
 router.get('/', function(req, res){
-    controller.getMessage()
+    const filterUser = req.query.user || null;
+    controller.getMessage(filterUser)
         .then((messageList)=>{
             /* console.log(req.headers)
                 res.header({
@@ -29,7 +30,7 @@ router.post('/', function(req, res){
         .then((fullMessage)=>{
             response.succes(req,res,fullMessage,201)
         }).catch((error)=>{
-            response.error(req,res,"has occurred an error", 401, "internal error" )
+            response.error(req,res,"has occurred an error", 401, "internal error",error )
         })
 
      // the same call that part 6 , we call component error from response module.

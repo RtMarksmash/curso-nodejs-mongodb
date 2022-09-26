@@ -1,15 +1,15 @@
 const store = require('../components/message/store')
 
-function addMessage(username, message){
+function addMessage(user, message){
     return new Promise((resolve,reject) =>{
-        if (!username || !message){
+        if (!user || !message){
             console.error('[Message control]: there are not user or message ');
             reject('there is a problem with message')
             return false
 
         }
             const fullMessage = {
-                username: username,
+                user: user,
                 message: message,
                 date: new Date()       
 
@@ -21,9 +21,9 @@ function addMessage(username, message){
 })}
 
 
-function getMessage(){
+function getMessage(filterUser){
     return new Promise((resolve,reject) =>{
-        resolve(store.getMessage());
+        resolve(store.getMessage(filterUser));
     })
 }
 
