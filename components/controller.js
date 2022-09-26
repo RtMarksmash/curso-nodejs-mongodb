@@ -1,8 +1,8 @@
 const store = require('../components/message/store')
 
-function addMessage(username, mesagge){
+function addMessage(username, message){
     return new Promise((resolve,reject) =>{
-        if (!username || !mesagge){
+        if (!username || !message){
             console.error('[Message control]: there are not user or message ');
             reject('there is a problem with message')
             return false
@@ -10,7 +10,7 @@ function addMessage(username, mesagge){
         }
             const fullMessage = {
                 username: username,
-                message: mesagge,
+                message: message,
                 date: new Date()       
 
         }
