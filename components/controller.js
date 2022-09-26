@@ -1,5 +1,4 @@
-const store = require('./message/store')
-
+const store = require('../components/message/store')
 
 function addMessage(username, mesagge){
     return new Promise((resolve,reject) =>{
