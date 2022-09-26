@@ -30,9 +30,22 @@ function addMessage(message){
     return messages 
     }
 
+async function updateText(id,text){
+    const foundMessage = await Model.findOne({
+        _id: id
+    })
+
+    foundMessage.message = text;
+
+    const newMessage = await foundMessage.save()
+    return newMessage;
+}
+
 
 
 module.exports = {
     addMessage,
-    getMessage
+    getMessage,
+    updateText
+
 }

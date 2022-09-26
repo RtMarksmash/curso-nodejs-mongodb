@@ -9,8 +9,10 @@ router.get('/', function(req, res){
         .then((messageList)=>{
             /* console.log(req.headers)
                 res.header({
-                "Custom-header" : "my personalized header"    
+                "Custom-header" : "my personalized header"   
+                 
     }) */
+            
             response.succes(req,res,messageList,201)
         }).catch((e)=>{
             console.log(e)
@@ -38,5 +40,16 @@ router.post('/', function(req, res){
     }) */
 });
 
+router.patch('/:id', function(req, res){ 
 
+    console.log(req.params.id)
+
+    controller.updateMessage(req.params.id , req.body.message)
+        .then(data =>{
+            response.succes(req,res,data,200)
+    
+        }).catch(err =>{
+            response.error(req,res,'internal error',500,err)
+        })
+})
 module.exports = router;

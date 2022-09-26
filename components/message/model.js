@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const mYSchema = new Schema({
-            user: String,
+            username: String,
             message: {
                 type: String,
                 required: true,
