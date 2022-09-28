@@ -1,12 +1,12 @@
-;
 
+const db = require('./db.js')
 const express = require('express');// 1. montamos express
 const bodyParser = require('body-parser')
 
 //const router = require('./components/message/network.js')
 const router = require('./network/routes')
 
-
+db()
 const app = express(); // 2. metemos express en una costante
 
 

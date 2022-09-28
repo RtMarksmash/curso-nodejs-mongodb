@@ -41,9 +41,27 @@ function updateMessage(id , text){
 
 }
 
+function removeMessage(id){
+    return new Promise((resolve, reject)=>{
+        if(!id){
+            reject('id dont exist')
+            return false 
+        };
+
+        store.removeMessage(id)
+            .then((data)=>{
+                resolve(data)
+            }).catch(e=>{
+                reject(e)
+            });
+        
+    });
+}
+
 
 module.exports = {
     addMessage,
     getMessage,
     updateMessage,
+    removeMessage
 }
