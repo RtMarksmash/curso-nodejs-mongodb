@@ -1,4 +1,4 @@
-const store = require('../components/message/store')
+const store = require('./store')
 
 function addMessage(user, message){
     return new Promise((resolve,reject) =>{
@@ -64,4 +64,5 @@ module.exports = {
     getMessage,
     updateMessage,
     removeMessage
-}
+} 
+

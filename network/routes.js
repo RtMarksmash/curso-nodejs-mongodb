@@ -1,5 +1,6 @@
 const express = require('express');
 const message = require('../components/message/network')
+const user = require('../components/user/network')
 
 
 function routes(server){
@@ -8,4 +9,12 @@ function routes(server){
 
 }
 
+
+function ruotesUser(server){
+    server.use('/user', user)
+}
+
+
 module.exports = routes;
+
+module.exports = ruotesUser;

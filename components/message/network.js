@@ -2,7 +2,7 @@ const express = require('express');
 const response = require('../../network/response')
 const router = express.Router();      
    // 3. usamos el router the express en una costante (we used the module router on express and we used a constant with this module)
-const controller = require('../controller')
+const controller = require('./controller')
 
 router.get('/', function(req, res){
     const filterUser = req.query.user || null;
