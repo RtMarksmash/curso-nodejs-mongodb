@@ -1,13 +1,19 @@
 const express = require('express');
 const multer = require('multer')
+const path = require('path')
 const response = require('../../network/response')
 const router = express.Router();      
    // 3. usamos el router the express en una costante (we used the module router on express and we used a constant with this module)
 const controller = require('./controller')
 
-const uploads = multer({
-    dest: 'upload/file/',
+const storage = multer.diskStorage({
+    destination: 'upload/file/',
+    filename: function(req,file,cb){
+        cb(null,file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+    }
 })
+
+const uploads = multer({storage: storage})
 
 router.get('/', function(req, res){
     const filterUser = req.query.user || null;
@@ -44,6 +50,18 @@ router.post('/', uploads.single('file') ,function(req, res){
         "message": "this message has been correctly add "
 
     }) */
+ /*    const path = require("path")
+const multer = require("multer")
+
+const storage = multer.diskStorage({
+    destination : "uploads/",
+    filename : function (req, file, cb) {
+        cb(null, file.fieldname + "-" + Date.now() + 
+        path.extname(file.originalname))
+    }
+})
+
+const upload = multer({ storage: storage }); */
 });
 
 router.patch('/:id', function(req, res){ 
