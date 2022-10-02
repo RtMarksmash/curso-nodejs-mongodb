@@ -1,8 +1,13 @@
 const express = require('express');
+const multer = require('multer')
 const response = require('../../network/response')
 const router = express.Router();      
    // 3. usamos el router the express en una costante (we used the module router on express and we used a constant with this module)
 const controller = require('./controller')
+
+const uploads = multer({
+    dest: 'upload/file/',
+})
 
 router.get('/', function(req, res){
     const filterUser = req.query.user || null;
@@ -25,8 +30,8 @@ router.get('/', function(req, res){
      // 6. we call component succes from response module
 });
 
-router.post('/', function(req, res){
-    controller.addMessage(req.body.user, req.body.message)
+router.post('/', uploads.single('file') ,function(req, res){
+    controller.addMessage(req.body.chat ,req.body.user, req.body.message, req.file)
         .then((fullMessage)=>{
             response.succes(req,res,fullMessage,201)
         }).catch((error)=>{

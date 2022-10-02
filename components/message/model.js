@@ -3,17 +3,22 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const mYSchema = new Schema({
-            user: {
-                type: Schema.ObjectId,
-                ref: 'user'
-            },
-            message: {
-                type: String,
-                required: true,
-            },
-            date: Date
+    chat: {
+        type: Schema.ObjectId,
+        ref: 'Chat',
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User',
+    },
+    message: {
+        type: String,
+        required: true,
+    },
+    date: Date,
+    file: String,
+});
 
-    });
 
 
 const model = mongoose.model('Message', mYSchema);
