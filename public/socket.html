@@ -9,10 +9,12 @@
 </head>
 <body>
     <h1>mira la consola</h1>
-    <script>
+    <script src="../server.js">
       const socket = io.connect('http://localhost:3000', {
             forceNew: true
         });
+
+        console.log(socket)
 
         socket.on('mensaje', function(data){
             console.log(data)
